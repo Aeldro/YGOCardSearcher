@@ -6,4 +6,4 @@ class Effect {
   }
 }
 
-module.exports = Effect;
+export { Effect };

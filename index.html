@@ -1,8 +1,162 @@
+<!-- index.html -->
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
-  <body></body>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect
+              x="4"
+              y="4"
+              width="24"
+              height="24"
+              rx="3"
+              fill="url(#gradient)"
+              stroke="#667eea"
+              stroke-width="2"
+            />
+            <path
+              d="M16 10 L20 16 L16 22 L12 16 Z"
+              fill="#0a1929"
+              opacity="0.8"
+            />
+            <defs>
+              <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+                <stop offset="0%" style="stop-color: #667eea" />
+                <stop offset="100%" style="stop-color: #764ba2" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>Yu-Gi-Oh Card Searcher</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#" class="active">Recherche</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div class="search-section">
+        <div class="search-container">
+          <h1>
+            Rechercher des cartes <span class="gradient-text">Yu-Gi-Oh!</span>
+          </h1>
+          <p class="search-subtitle">
+            Explorez la base de données complète de toutes les cartes Yu-Gi-Oh!
+          </p>
+
+          <div class="search-box">
+            <svg
+              class="search-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8" stroke-width="2" />
+              <path
+                d="M21 21l-4.35-4.35"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Rechercher par nom..."
+              class="search-input"
+            />
+            <button class="btn-search">Rechercher</button>
+          </div>
+
+          <div class="filters">
+            <select class="filter-select">
+              <option value="">Tous les types</option>
+              <option value="monster">Monstre</option>
+              <option value="spell">Magie</option>
+              <option value="trap">Piège</option>
+            </select>
+            <select class="filter-select">
+              <option value="">Tous les attributs</option>
+              <option value="dark">TÉNÈBRES</option>
+              <option value="light">LUMIÈRE</option>
+              <option value="water">EAU</option>
+              <option value="fire">FEU</option>
+              <option value="earth">TERRE</option>
+              <option value="wind">VENT</option>
+              <option value="divine">DIVIN</option>
+            </select>
+            <select class="filter-select">
+              <option value="">Tous les niveaux</option>
+              <option value="1-4">Niveau 1-4</option>
+              <option value="5-6">Niveau 5-6</option>
+              <option value="7+">Niveau 7+</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-section">
+        <div class="container">
+          <div class="results-header">
+            <h2>Résultats</h2>
+            <span class="results-count">12 cartes trouvées</span>
+          </div>
+
+          <div class="cards-grid"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>YGO Search</h4>
+            <p>
+              Votre base de données complète pour toutes les cartes Yu-Gi-Oh!
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Ressources</h4>
+            <ul>
+              <li><a href="#">Règles du jeu</a></li>
+              <li><a href="#">Liste bannie</a></li>
+              <li><a href="#">Nouveautés</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Communauté</h4>
+            <ul>
+              <li><a href="#">Forum</a></li>
+              <li><a href="#">Tournois</a></li>
+              <li><a href="#">Deck Builder</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Légal</h4>
+            <ul>
+              <li><a href="#">Conditions</a></li>
+              <li><a href="#">Confidentialité</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 YGO Search. Site non officiel. Yu-Gi-Oh! est une marque
+            de Konami.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="main.js"></script>
+  </body>
 </html>

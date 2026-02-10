@@ -1,11 +1,12 @@
-const parseDescription = require("./scripts/startSearch.js");
+// main.js
 
-// Config
-const API_URL = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
-const SEARCHED_ATTRIBUTE = "fname";
-const SEARCHED_VALUE = "kashtira";
-const CONDITION_COLOR = "#274e1366";
-const COST_COLOR = "#783f0466";
-const ACTION_COLOR = "#5b0f0066";
+import { startSearch } from "./services/userInterfaceService.js";
+import { APP_SETTINGS } from "./appSettings.js";
 
-function main() {}
+document.querySelector(".btn-search").addEventListener("click", () => {
+  startSearch(
+    APP_SETTINGS.API_URL,
+    APP_SETTINGS.SEARCHED_ATTRIBUTE,
+    APP_SETTINGS.SEARCHED_VALUE,
+  );
+});

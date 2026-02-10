@@ -1,0 +1,196 @@
+/* cardComponent.css */
+
+/* Cards Grid */
+.cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card-item {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-item:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
+}
+
+/* Card Images */
+.card-image {
+  width: 200px;
+  min-width: 200px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card Details */
+.card-details {
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+
+.card-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.card-stats {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.stat-badge {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.stat-badge.dark {
+  background: var(--dark-attr);
+  color: white;
+}
+
+.stat-badge.light {
+  background: var(--light-attr);
+  color: #0a1929;
+}
+
+.stat-badge.water {
+  background: var(--water-attr);
+  color: white;
+}
+
+.stat-badge.fire {
+  background: var(--fire-attr);
+  color: white;
+}
+
+.stat-badge.earth {
+  background: var(--earth-attr);
+  color: white;
+}
+
+.stat-badge.wind {
+  background: var(--wind-attr);
+  color: white;
+}
+
+.stat-badge.spell {
+  background: var(--spell-color);
+  color: white;
+}
+
+.stat-badge.trap {
+  background: var(--trap-color);
+  color: white;
+}
+
+.card-atk-def {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  font-size: 1rem;
+}
+
+.card-effect {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  /* font-style: italic; */
+}
+
+/* Animations */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.card-item {
+  animation: fadeInRight 0.5s ease-out;
+}
+
+.card-item:nth-child(1) {
+  animation-delay: 0s;
+}
+.card-item:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.card-item:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.card-item:nth-child(4) {
+  animation-delay: 0.15s;
+}
+.card-item:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.card-item:nth-child(6) {
+  animation-delay: 0.25s;
+}
+.card-item:nth-child(7) {
+  animation-delay: 0.3s;
+}
+.card-item:nth-child(8) {
+  animation-delay: 0.35s;
+}
+.card-item:nth-child(9) {
+  animation-delay: 0.4s;
+}
+.card-item:nth-child(10) {
+  animation-delay: 0.45s;
+}
+.card-item:nth-child(11) {
+  animation-delay: 0.5s;
+}
+.card-item:nth-child(12) {
+  animation-delay: 0.55s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-item {
+    flex-direction: column;
+  }
+
+  .card-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 5px auto;
+  }
+
+  .card-details {
+    padding: 1rem;
+  }
+
+  .card-name {
+    font-size: 1.2rem;
+  }
+}

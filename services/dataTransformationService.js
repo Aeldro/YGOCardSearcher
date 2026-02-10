@@ -1,4 +1,34 @@
-const Effect = require("../classes/EffectSchema.js");
+// dataTransformationService.js
+
+import { Effect } from "../classes/EffectSchema.js";
+
+// Input: string
+// Output: Effect[]
+function parseDescription(description = "") {
+  // let parsedDescription = description
+  //   .split(/[\n.]/)
+  //   .map((item) => item.trim())
+  //   .filter((item) => item !== "")
+  //   .map((item) => item + ".");
+
+  let parsedDescription = description
+    .replaceAll(
+      /(\.\s(?!\d\))(\(.*\.\))?)/g,
+      `$1
+\r`,
+    )
+    .split(/[\n\r]+/)
+    .map((s) => s.trim());
+
+  let effects = [];
+
+  for (let i = 0; i < parsedDescription.length; i++) {
+    let effect = parseEffect(parsedDescription[i]);
+    effects.push(effect);
+  }
+
+  return effects;
+}
 
 // Input: string
 // Output: Effect
@@ -32,4 +62,4 @@ function parseEffect(effectDescription = "") {
   return new Effect(condition, cost, action);
 }
 
-module.exports = parseEffect;
+export { parseDescription, parseEffect };
