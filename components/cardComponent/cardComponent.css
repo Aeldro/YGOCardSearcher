@@ -27,10 +27,10 @@
 /* Card Images */
 .card-image {
   width: 200px;
-  /* min-width: 200px; */
   height: auto;
   object-fit: contain;
   display: block;
+  margin: 1rem 1rem;
 }
 
 /* Card Details */
@@ -39,79 +39,84 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+}
+
+/* Card Header avec titre et icône */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
 }
 
 .card-name {
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
   color: var(--text-primary);
 }
 
-.card-stats {
+.card-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  flex-shrink: 0; /* Empêche l'image de rétrécir */
+}
+
+.card-badge {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
   margin-bottom: 0.75rem;
 }
 
-.stat-badge {
+.card-badge-span {
   background: rgba(255, 255, 255, 0.1);
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
-.stat-badge.dark {
-  background: var(--dark-attr);
+.card-badge-span.link {
+  background: var(--link-color);
   color: white;
 }
 
-.stat-badge.light {
-  background: var(--light-attr);
-  color: #0a1929;
-}
-
-.stat-badge.water {
-  background: var(--water-attr);
-  color: white;
-}
-
-.stat-badge.fire {
-  background: var(--fire-attr);
-  color: white;
-}
-
-.stat-badge.earth {
-  background: var(--earth-attr);
-  color: white;
-}
-
-.stat-badge.wind {
-  background: var(--wind-attr);
-  color: white;
-}
-
-.stat-badge.spell {
+.card-badge-span.spell {
   background: var(--spell-color);
   color: white;
 }
 
-.stat-badge.trap {
+.card-badge-span.trap {
   background: var(--trap-color);
   color: white;
+}
+
+.card-infos {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.card-ranklvl-image {
+  width: 25px;
+  height: 25px;
+  margin-right: 0.2rem;
 }
 
 .card-atk-def {
   display: flex;
   gap: 1.5rem;
+  padding-left: 1rem;
   margin-bottom: 0.75rem;
   font-weight: 700;
-  color: var(--accent-primary);
+  color: var(--text-primary);
   font-size: 1rem;
+  border-bottom: 1px solid white;
 }
 
 .card-effect {
@@ -178,6 +183,10 @@
   animation-delay: 0.55s;
 }
 
+.disabled {
+  display: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .card-item {
@@ -187,7 +196,7 @@
   .card-image {
     width: 60%;
     max-width: 300px;
-    margin: 5px auto;
+    margin: 1rem auto;
   }
 
   .card-details {

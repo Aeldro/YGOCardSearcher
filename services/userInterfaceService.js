@@ -2,13 +2,19 @@
 
 import { CardComponent } from "./../components/cardComponent/CardComponent.js";
 import { getData } from "./ygoApiService.js";
-import { clearTable, generateCard } from "./pageManagementService.js";
+import {
+  clearTable,
+  generateCard,
+  updateResultsCount,
+} from "./pageManagementService.js";
 import { parseDescription } from "./dataTransformationService.js";
 
 async function startSearch(apiUrl, searchedAttribute, searchedValue) {
   clearTable();
 
   const data = await getData(apiUrl, searchedAttribute, searchedValue);
+
+  updateResultsCount(data.data.length);
 
   const cardComponent = await new CardComponent().init();
 

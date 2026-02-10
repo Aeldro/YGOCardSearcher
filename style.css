@@ -22,15 +22,9 @@
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.4);
 
   /* Card type colors */
-  --monster-color: #ff8b53;
   --spell-color: #1d9e74;
   --trap-color: #bc5a84;
-  --dark-attr: #7b68aa;
-  --light-attr: #ffd966;
-  --water-attr: #4a90e2;
-  --fire-attr: #e74c3c;
-  --earth-attr: #8b6f47;
-  --wind-attr: #4ecdc4;
+  --link-color: #00a2e8;
 }
 
 body {

@@ -13,4 +13,9 @@ function generateCard(cardComponent) {
   return "Card inserted.";
 }
 
-export { clearTable, generateCard };
+function updateResultsCount(count) {
+  document.querySelector(".results-count").textContent =
+    count + " cartes trouvées";
+}
+
+export { clearTable, generateCard, updateResultsCount };
