@@ -27,9 +27,9 @@
 /* Card Images */
 .card-image {
   width: 200px;
-  min-width: 200px;
+  /* min-width: 200px; */
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -118,7 +118,11 @@
   color: var(--text-primary);
   font-size: 1.1rem;
   line-height: 1.6;
-  /* font-style: italic; */
+}
+
+.card-span-effect {
+  border-radius: 3px;
+  margin-right: 2px;
 }
 
 /* Animations */
@@ -181,7 +185,7 @@
   }
 
   .card-image {
-    width: 100%;
+    width: 60%;
     max-width: 300px;
     margin: 5px auto;
   }

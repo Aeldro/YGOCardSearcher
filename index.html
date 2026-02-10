@@ -52,7 +52,7 @@
             Explorez la base de données complète de toutes les cartes Yu-Gi-Oh!
           </p>
 
-          <div class="search-box">
+          <form id="searchForm" class="search-box">
             <svg
               class="search-icon"
               width="20"
@@ -68,14 +68,15 @@
                 stroke-linecap="round"
               />
             </svg>
+
             <input
               type="text"
               id="searchInput"
               placeholder="Rechercher par nom..."
               class="search-input"
             />
-            <button class="btn-search">Rechercher</button>
-          </div>
+            <button type="submit" class="btn-search">Rechercher</button>
+          </form>
 
           <div class="filters">
             <select class="filter-select">

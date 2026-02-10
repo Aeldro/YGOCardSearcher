@@ -5,12 +5,6 @@ import { Effect } from "../classes/EffectSchema.js";
 // Input: string
 // Output: Effect[]
 function parseDescription(description = "") {
-  // let parsedDescription = description
-  //   .split(/[\n.]/)
-  //   .map((item) => item.trim())
-  //   .filter((item) => item !== "")
-  //   .map((item) => item + ".");
-
   let parsedDescription = description
     .replaceAll(
       /(\.\s(?!\d\))(\(.*\.\))?)/g,
@@ -40,18 +34,18 @@ function parseEffect(effectDescription = "") {
   let action;
 
   if (effectDescription.includes(":") && !effectDescription.includes(";")) {
-    condition = parsedEffectDescription[0].trim() + ":";
+    condition = parsedEffectDescription[0].trim() + ": ";
     action = parsedEffectDescription[1].trim();
   }
 
   if (effectDescription.includes(":") && effectDescription.includes(";")) {
-    condition = parsedEffectDescription[0].trim() + ":";
-    cost = parsedEffectDescription[1].trim() + ";";
+    condition = parsedEffectDescription[0].trim() + ": ";
+    cost = parsedEffectDescription[1].trim() + "; ";
     action = parsedEffectDescription[2].trim();
   }
 
   if (!effectDescription.includes(":") && effectDescription.includes(";")) {
-    cost = parsedEffectDescription[0].trim() + ";";
+    cost = parsedEffectDescription[0].trim() + "; ";
     action = parsedEffectDescription[1].trim();
   }
 
