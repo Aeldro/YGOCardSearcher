@@ -107,25 +107,37 @@ class CardComponent extends Component {
     // Pour chaque effet
     for (let i = 0; i < cardData.effects.length; i++) {
       let effect = document.createElement("p");
-      let conditionSpan = document.createElement("span");
-      let costSpan = document.createElement("span");
-      let actionSpan = document.createElement("span");
 
-      conditionSpan.textContent = cardData.effects[i].condition;
-      costSpan.textContent = cardData.effects[i].cost;
-      actionSpan.textContent = cardData.effects[i].action;
+      if (cardData.effects[i].condition) {
+        let conditionSpan = document.createElement("span");
+        conditionSpan.textContent = cardData.effects[i].condition;
+        conditionSpan.classList.add("card-span-effect");
+        conditionSpan.style.backgroundColor = APP_SETTINGS.CONDITION_COLOR;
+        effect.appendChild(conditionSpan);
+      }
 
-      conditionSpan.classList.add("card-span-effect");
-      costSpan.classList.add("card-span-effect");
-      actionSpan.classList.add("card-span-effect");
+      if (cardData.effects[i].cost) {
+        let costSpan = document.createElement("span");
+        costSpan.textContent = cardData.effects[i].cost;
+        costSpan.classList.add("card-span-effect");
+        costSpan.style.backgroundColor = APP_SETTINGS.COST_COLOR;
+        effect.appendChild(costSpan);
+      }
 
-      conditionSpan.style.backgroundColor = APP_SETTINGS.CONDITION_COLOR;
-      costSpan.style.backgroundColor = APP_SETTINGS.COST_COLOR;
-      actionSpan.style.backgroundColor = APP_SETTINGS.ACTION_COLOR;
+      if (cardData.effects[i].action) {
+        let actionSpan = document.createElement("span");
+        actionSpan.textContent = cardData.effects[i].action;
+        actionSpan.classList.add("card-span-effect");
+        actionSpan.style.backgroundColor = APP_SETTINGS.ACTION_COLOR;
+        effect.appendChild(actionSpan);
+      }
 
-      effect.appendChild(conditionSpan);
-      effect.appendChild(costSpan);
-      effect.appendChild(actionSpan);
+      if (cardData.effects[i].noEffect) {
+        let noEffectSpan = document.createElement("span");
+        noEffectSpan.textContent = cardData.effects[i].noEffect;
+        noEffectSpan.classList.add("card-span-effect");
+        effect.appendChild(noEffectSpan);
+      }
 
       currentCard.querySelector(".card-effect").appendChild(effect);
 
