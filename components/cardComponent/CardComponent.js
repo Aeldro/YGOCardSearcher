@@ -1,9 +1,9 @@
-// CardComponent.js
+// cardComponent.js
 
-import { Component } from "../../core/Component.js";
-import { APP_SETTINGS } from "./../../appSettings.js";
+import { component } from "../../core/component.js";
+import { APP_SETTINGS } from "../../appSettings.js";
 
-class CardComponent extends Component {
+class cardComponent extends component {
   constructor() {
     super(
       null,
@@ -149,4 +149,4 @@ class CardComponent extends Component {
   }
 }
 
-export { CardComponent };
+export { cardComponent };

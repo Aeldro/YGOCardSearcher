@@ -1,4 +1,4 @@
-class Component {
+class component {
   constructor(template, cssFileUrl, htmlFileUrl) {
     this.template = template;
     this.cssFileUrl = cssFileUrl;
@@ -31,4 +31,4 @@ class Component {
   }
 }
 
-export { Component };
+export { component };
