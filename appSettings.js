@@ -18,6 +18,7 @@ const APP_SETTINGS = {
   DIVINE_ATTRIBUTE_IMG_URL: "https://codexygo.fr/6fd92fd6edbc095ceae6.png",
   SPELL_ATTRIBUTE_IMG_URL: "https://ms.yugipedia.com//0/09/SPELL.svg",
   TRAP_ATTRIBUTE_IMG_URL: "https://ms.yugipedia.com//2/28/TRAP.svg",
+  CARDS_PER_PAGE: 20,
 };
 
 export { APP_SETTINGS };

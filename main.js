@@ -10,3 +10,5 @@ document.getElementById("searchForm").addEventListener("submit", (e) => {
     startSearch(APP_SETTINGS.API_URL, APP_SETTINGS.SEARCHED_ATTRIBUTE, value);
   }
 });
+
+
