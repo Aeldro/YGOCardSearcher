@@ -11,10 +11,21 @@ import {
 import { parseDescription } from "./dataTransformationService.js";
 import { APP_SETTINGS } from "../appSettings.js";
 
-async function startSearch(apiUrl, searchedAttribute, searchedValue, pageNumberTarget = 0) {
+async function startSearch(
+  apiUrl,
+  searchedAttribute,
+  searchedValue,
+  pageNumberTarget = 1,
+) {
   clearTable();
 
-  const data = await getData(apiUrl, searchedAttribute, searchedValue, pageNumber * APP_SETTINGS.CARDS_PER_PAGE - APP_SETTINGS.CARDS_PER_PAGE);
+  const data = await getData(
+    apiUrl,
+    searchedAttribute,
+    searchedValue,
+    pageNumberTarget * APP_SETTINGS.CARDS_PER_PAGE -
+      APP_SETTINGS.CARDS_PER_PAGE,
+  );
   const numberOfCards = await getNumberOfCards(
     apiUrl,
     searchedAttribute,
@@ -33,11 +44,13 @@ async function startSearch(apiUrl, searchedAttribute, searchedValue, pageNumberT
 
   const pagination = (
     await new paginationComponent().init()
-  ).getPaginationComponent(APP_SETTINGS.CARDS_PER_PAGE, numberOfCards, pageNumber);
+  ).getPaginationComponent(
+    APP_SETTINGS.CARDS_PER_PAGE,
+    numberOfCards,
+    pageNumberTarget,
+  );
 
   document.querySelector(".cards-grid").appendChild(pagination);
 }
-
-
 
 export { startSearch };
