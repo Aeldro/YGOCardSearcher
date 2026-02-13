@@ -11,10 +11,10 @@ import {
 import { parseDescription } from "./dataTransformationService.js";
 import { APP_SETTINGS } from "../appSettings.js";
 
-async function startSearch(apiUrl, searchedAttribute, searchedValue) {
+async function startSearch(apiUrl, searchedAttribute, searchedValue, pageNumberTarget = 0) {
   clearTable();
 
-  const data = await getData(apiUrl, searchedAttribute, searchedValue);
+  const data = await getData(apiUrl, searchedAttribute, searchedValue, pageNumber * APP_SETTINGS.CARDS_PER_PAGE - APP_SETTINGS.CARDS_PER_PAGE);
   const numberOfCards = await getNumberOfCards(
     apiUrl,
     searchedAttribute,
@@ -33,16 +33,11 @@ async function startSearch(apiUrl, searchedAttribute, searchedValue) {
 
   const pagination = (
     await new paginationComponent().init()
-  ).getPaginationComponent(APP_SETTINGS.CARDS_PER_PAGE, 60, 1);
+  ).getPaginationComponent(APP_SETTINGS.CARDS_PER_PAGE, numberOfCards, pageNumber);
 
   document.querySelector(".cards-grid").appendChild(pagination);
 }
 
-function goToPage(pageNumber) {
-  if (document.getElementById("searchInput").value.length > 0) {
-    let value = document.getElementById("searchInput").value;
-    startSearch(APP_SETTINGS.API_URL, APP_SETTINGS.SEARCHED_ATTRIBUTE, value);
-  }
-}
+
 
 export { startSearch };
