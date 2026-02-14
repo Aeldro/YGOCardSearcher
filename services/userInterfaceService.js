@@ -7,6 +7,7 @@ import {
   clearTable,
   generateCard,
   updateResultsCount,
+  goToTop,
 } from "./pageManagementService.js";
 import { parseDescription } from "./dataTransformationService.js";
 import { APP_SETTINGS } from "../appSettings.js";
@@ -18,6 +19,7 @@ async function startSearch(
   pageNumberTarget = 1,
 ) {
   clearTable();
+  goToTop();
 
   const data = await getData(
     apiUrl,
