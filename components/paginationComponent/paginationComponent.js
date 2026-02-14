@@ -130,6 +130,7 @@ class paginationComponent extends component {
   goToPage(pageNumber) {
     if (document.getElementById("searchInput").value.length > 0) {
       let value = document.getElementById("searchInput").value;
+
       startSearch(
         APP_SETTINGS.API_URL,
         APP_SETTINGS.SEARCHED_ATTRIBUTE,
