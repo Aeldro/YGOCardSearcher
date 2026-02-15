@@ -18,6 +18,12 @@ async function startSearch(
   searchedValue,
   pageNumberTarget = 1,
 ) {
+  const btnSearch = document.querySelector(".btn-search");
+  btnSearch.classList.add("loading");
+
+  const cardsGrid = document.querySelector(".cards-grid");
+  cardsGrid.classList.add("disabled");
+
   clearTable();
   goToTop();
 
@@ -53,6 +59,12 @@ async function startSearch(
   );
 
   document.querySelector(".cards-grid").appendChild(pagination);
+
+  cardsGrid.classList.remove("disabled");
+
+  setTimeout(() => {
+    btnSearch.classList.remove("loading");
+  }, 1000);
 }
 
 export { startSearch };
