@@ -108,6 +108,15 @@
   margin-right: 0.2rem;
 }
 
+.card-types {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
 .card-atk-def {
   display: flex;
   gap: 1.5rem;
@@ -123,6 +132,10 @@
   color: var(--text-primary);
   font-size: 1.1rem;
   line-height: 1.6;
+}
+
+.card-effect p {
+  margin-bottom: 1rem;
 }
 
 .card-span-effect {

@@ -22,56 +22,6 @@ class cardComponent extends component {
     // Insersion du nom
     currentCard.querySelector(".card-name").textContent = cardData.name;
 
-    // Insersion de l'atk & def
-    if (typeof cardData.atk === "number") {
-      if (cardData.atk === -1) {
-        currentCard.querySelector(".card-atk-span").textContent = "ATK/ " + "?";
-      } else {
-        currentCard.querySelector(".card-atk-span").textContent =
-          "ATK/ " + cardData.atk;
-      }
-    }
-
-    if (typeof cardData.def === "number") {
-      if (cardData.def === -1) {
-        currentCard.querySelector(".card-def-span").textContent = "DEF/ " + "?";
-      } else {
-        currentCard.querySelector(".card-def-span").textContent =
-          "DEF/ " + cardData.def;
-      }
-    }
-
-    // Insersion des infos (level, rank, link, M/P)
-    if (cardData.type == "Spell Card") {
-      currentCard.querySelector(".card-badge-span").classList.add("spell");
-      currentCard.querySelector(".card-badge-span").textContent = cardData.type;
-      currentCard.querySelector(".card-badge").classList.remove("disabled");
-    } else if (cardData.type == "Trap Card") {
-      currentCard.querySelector(".card-badge-span").classList.add("trap");
-      currentCard.querySelector(".card-badge-span").textContent = cardData.type;
-      currentCard.querySelector(".card-badge").classList.remove("disabled");
-    } else if (
-      cardData.type == "XYZ Monster" &&
-      typeof cardData.level === "number"
-    ) {
-      currentCard.querySelector(".card-ranklvl-image").src =
-        APP_SETTINGS.RANK_IMG_URL;
-      currentCard.querySelector(".card-ranklvl-span").textContent =
-        cardData.level;
-      currentCard.querySelector(".card-ranklvl").classList.remove("disabled");
-    } else if (typeof cardData.level === "number") {
-      currentCard.querySelector(".card-ranklvl-image").src =
-        APP_SETTINGS.LVL_IMG_URL;
-      currentCard.querySelector(".card-ranklvl-span").textContent =
-        cardData.level;
-      currentCard.querySelector(".card-ranklvl").classList.remove("disabled");
-    } else if (typeof cardData.linkval === "number") {
-      currentCard.querySelector(".card-badge-span").classList.add("link");
-      currentCard.querySelector(".card-badge-span").textContent =
-        "LINK - " + cardData.linkval;
-      currentCard.querySelector(".card-badge").classList.remove("disabled");
-    }
-
     // Insersion de l'attribut
     if (cardData.type === "Spell Card") {
       currentCard.querySelector(".card-icon").src =
@@ -100,6 +50,59 @@ class cardComponent extends component {
     } else if (cardData.attribute === "DIVINE") {
       currentCard.querySelector(".card-icon").src =
         APP_SETTINGS.DIVINE_ATTRIBUTE_IMG_URL;
+    }
+
+    // Insersion des infos (level, rank, link, M/P)
+    if (cardData.type == "Spell Card") {
+      currentCard.querySelector(".card-badge-span").classList.add("spell");
+      currentCard.querySelector(".card-badge-span").textContent = cardData.type;
+      currentCard.querySelector(".card-badge").classList.remove("disabled");
+    } else if (cardData.type == "Trap Card") {
+      currentCard.querySelector(".card-badge-span").classList.add("trap");
+      currentCard.querySelector(".card-badge-span").textContent = cardData.type;
+      currentCard.querySelector(".card-badge").classList.remove("disabled");
+    } else if (
+      cardData.type == "XYZ Monster" &&
+      typeof cardData.level === "number"
+    ) {
+      currentCard.querySelector(".card-ranklvl-image").src =
+        APP_SETTINGS.RANK_IMG_URL;
+      currentCard.querySelector(".card-ranklvl-span").textContent =
+        cardData.level;
+      currentCard.querySelector(".card-ranklvl").classList.remove("disabled");
+    } else if (
+      cardData.type == "Link Monster" &&
+      typeof cardData.linkval === "number"
+    ) {
+      currentCard.querySelector(".card-badge-span").classList.add("link");
+      currentCard.querySelector(".card-badge-span").textContent =
+        "LINK - " + cardData.linkval;
+      currentCard.querySelector(".card-badge").classList.remove("disabled");
+    } else if (typeof cardData.level === "number") {
+      currentCard.querySelector(".card-ranklvl-image").src =
+        APP_SETTINGS.LVL_IMG_URL;
+      currentCard.querySelector(".card-ranklvl-span").textContent =
+        cardData.level;
+      currentCard.querySelector(".card-ranklvl").classList.remove("disabled");
+    }
+
+    // Insertion des types
+    if (cardData.typeline && cardData.typeline.length > 0) {
+      let cardTypesSpan = currentCard.querySelector(".card-types-span");
+
+      cardTypesSpan.textContent = "[";
+
+      for (let i = 0; i < cardData.typeline.length; i++) {
+        cardTypesSpan.textContent =
+          cardTypesSpan.textContent + cardData.typeline[i];
+        if (i < cardData.typeline.length - 1) {
+          cardTypesSpan.textContent = cardTypesSpan.textContent + "/";
+        }
+      }
+
+      cardTypesSpan.textContent = cardTypesSpan.textContent + "]";
+
+      currentCard.querySelector(".card-types").classList.remove("disabled");
     }
 
     // Insersion des effets
@@ -142,7 +145,26 @@ class cardComponent extends component {
       currentCard.querySelector(".card-effect").appendChild(effect);
 
       let br = document.createElement("br");
-      currentCard.querySelector(".card-effect").appendChild(br);
+      // currentCard.querySelector(".card-effect").appendChild(br);
+    }
+
+    // Insersion de l'atk & def
+    if (typeof cardData.atk === "number") {
+      if (cardData.atk === -1) {
+        currentCard.querySelector(".card-atk-span").textContent = "ATK/ " + "?";
+      } else {
+        currentCard.querySelector(".card-atk-span").textContent =
+          "ATK/ " + cardData.atk;
+      }
+    }
+
+    if (typeof cardData.def === "number") {
+      if (cardData.def === -1) {
+        currentCard.querySelector(".card-def-span").textContent = "DEF/ " + "?";
+      } else {
+        currentCard.querySelector(".card-def-span").textContent =
+          "DEF/ " + cardData.def;
+      }
     }
 
     return currentCard;
